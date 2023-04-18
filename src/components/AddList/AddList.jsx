@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import List from '../List';
 import '../List/list.scss';
 
-const AddList = (props) => {
-  const [visiblePopup, setVisiblePopup] = useState(false);
+const AddList = ({ colors }) => {
+  const [visiblePopup, setVisiblePopup] = useState(true);
 
   return (
     <div className="add-list">
-      <List onClick={() => setVisiblePopup(!visiblePopup)}
+      <List onClick={() => setVisiblePopup(true)}
         items={[
           {
             className: 'list__add-button',
@@ -21,10 +21,19 @@ const AddList = (props) => {
 
             ),
           }
-        ]} 
+        ]}
       />
-      
-      {visiblePopup && (<div className="add-list__popup"><h1>123</h1></div>)}
+
+      {visiblePopup && (
+      <div className="add-list__popup">
+        <input className='field' type='text' placeholder="Add New List" />
+        <div className="add-list__popup-colors">
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+        <button className="button">Add</button>
+      </div>)}
     </div>
   );
 };

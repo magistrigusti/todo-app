@@ -12,8 +12,8 @@ const List = ({items, isRemovable , onClick}) => {
         items.map((item, index) =>
           <li key={index}
             className={classNames(item.className, {active: item.active})}>
-            <i>{item.icon ? item.icon :
-              <i className={`badge badge--${item.color}`}></i>}
+            <i>{item.icon ? (item.icon) :
+              (<i className={`badge badge--${item.color}`}></i>)}
             </i>
             <span>{item.name}</span>
           </li>)
