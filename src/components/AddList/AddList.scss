@@ -1,5 +1,6 @@
 .add-list {
   &__popup {
+    position: relative;
     width: 240px;
     height: 150px;
     background: #fff;
@@ -13,6 +14,13 @@
       margin-top: 10px;
     }
 
+    &-close-btn {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      cursor: pointer;
+    }
+
     &-colors {
       margin-top: 10px;
       display: flex;
@@ -22,10 +30,10 @@
         position: static;
         width: 16px;
         height: 16px;
-        border: 2px solid transparent;
+        border: 3px solid transparent;
 
         &.active {
-          border: 2px solid #525252;
+          border: 3px solid #525252;
         }
       }
     }
