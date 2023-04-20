@@ -6,7 +6,6 @@ import '../AddList/AddList.scss';
 
 const List = ({items, isRemovable , onClick}) => {
 
-
   return (
     <ul className="list" onClick={onClick}>
       {

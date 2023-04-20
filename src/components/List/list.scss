@@ -2,17 +2,21 @@
   margin-bottom: 30px;
 
   &__add-button {
-    svg, span {
+
+    svg,
+    span {
       opacity: 0.4;
     }
 
     &:hover {
-      svg, span {
+
+      svg,
+      span {
         opacity: 1;
       }
     }
   }
-  
+
   li {
     display: flex;
     align-items: center;
@@ -30,6 +34,11 @@
       border-radius: 8px;
     }
 
+    &.badge {
+      position: relative;
+      left: 5px;
+    }
+
     i {
       display: inline-flex;
       margin-right: 10px;
@@ -38,35 +47,6 @@
         path {
           fill: #7c7c7c;
         }
-      }
-    }
-
-    .badge {
-      position: relative;
-      left: 5px;
-      
-      width: 10px;
-      height: 10px;
-      border-radius: 30px;
-
-      &--green {
-        background-color: #42B883;
-      }
-
-      &--blue {
-        background-color: #64C4ED;
-      }
-
-      &--pink {
-        background-color: #FFBBCC;
-      }
-
-      &--yellow {
-        background-color: #dff592;
-      }
-
-      &--grey {
-        background-color: #C9D1D3;
       }
     }
   }

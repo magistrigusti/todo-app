@@ -1,9 +1,11 @@
 import React from 'react';
 import './Badge.scss';
 
-const Badge = ({ color }) => {
+const Badge = ({ color, onClick }) => {
   return (
-    <i className={`badge badge--${color}`}></i>  
+    <i className={`badge badge--${color}`}
+        onClick={onClick}>
+    </i>   
   );      
 }
 

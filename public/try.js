@@ -1,31 +1,25 @@
-import React, { useState } from 'react';
-import List from '../List';
-import '../List/list.scss';
+import React from 'react';
+import classNames from 'classnames';
+import Badge from '../Badge/Badge';
+import './list.scss';
+import '../AddList/AddList.scss';
 
-const AddList = (props) => {
-  const [visiblePopup, setVisiblePopup] = useState(false);
-
+const List = ((items, isRemovable, onClick) => {
   return (
-    <div className="add-list">
-      <List onClick={() => setVisiblePopup(true)}
-        items={[
-          {
-            className: 'list__add-button',
-            name: 'Add List',
-            icon: (),
-          }
-        ]}
-      />
-
+    <ul className="list" onClick={onClick}> 
       {
-        visiblePopup && (
-          <div className="add-list__popup">
-            <h1>123</h1>
-          </div>
-        )
+        items.map((item, index) => 
+          <li key={index}
+              className={classNames(item.className, {active: item.active})}>
+            <i>
+              {item.icon ? item.icon :
+                <Badge color={item.color} />}
+            </i>
+            <span>{item.name}</span>
+          </li>)
       }
-    </div>
+    </ul>
   )
-}
+})
 
-export default AddList;
+export default List;
