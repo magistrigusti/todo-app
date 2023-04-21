@@ -22,34 +22,9 @@ function App(props) {
               name: 'All Tasks',
             }]} />
 
-        <List items={[
-          {
-            color: 'green',
-            name: 'Purchases',
+        <List items={DB.lists} isRemovable />
 
-          },
-          {
-            name: 'Front End',
-            color: 'blue',
-          },
-          {
-            name: 'Movies',
-            color: 'pink'
-          },
-          {
-            name: 'Books',
-            color: 'yellow',
-            active: true,
-          },
-          {
-            name: 'Personal',
-            color: 'grey',
-          },
-        ]}
-          isRemovable 
-        />
-
-        <AddList colors={DB.colors} />
+        <AddList colors={DB.colors} /> 
       </div>
 
       <div className="todo__task">

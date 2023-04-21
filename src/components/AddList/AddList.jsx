@@ -13,8 +13,8 @@ const AddList = ({ colors }) => {
       <List onClick={() => setVisiblePopup(true)}
         items={[
           {
-            className: 'list__add-button',
-            name: 'Add List',
+            className: "list__add-button",
+            name: "Add List",
             icon: (
               <svg
                 width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,30 +28,33 @@ const AddList = ({ colors }) => {
       />
 
       {visiblePopup && (
-      <div className="add-list__popup">
-        <img className="add-list__popup-close-btn" 
-            src={closeSvg} alt="Close button"  
+        <div className="add-list__popup">
+          <img className="add -list__popup-close-btn"
+            src={closeSvg} alt="Close Button"
             onClick={() => setVisiblePopup(false)}
-        />
-        <input className='field' 
-            type='text' 
-            placeholder="Add New List" 
-        />
+          />
 
-        <div className="add-list__popup-colors">
-          {
-            colors.map(color => 
-              <Badge onClick={() => selectColor(color.id)}
-                key={color.id}
-                color={color.name}
-                className={selectedColor === color.id && 'active'}
-              />)
-          }
+          <input type="text"
+            className="field"
+            placeholder="add new list"
+          />
+
+          <div className="add-list__popup-colors">
+            {
+              colors.map(color => 
+                <Badge key={color.id}
+                  color={color.name}
+                  onClick={() => selectColor(color.id)}
+                  className={selectedColor === color.id && 'active'}
+                />
+              )
+            }
+          </div>
+          <button className="button">Add</button>
         </div>
-        <button className="button">Add</button>
-      </div>)}
+      )}
     </div>
-  );
-};
+  )
+}
 
-export default AddList;
+export default AddList; 

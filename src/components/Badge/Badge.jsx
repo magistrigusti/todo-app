@@ -4,8 +4,9 @@ import './Badge.scss';
 
 const Badge = ({ color, onClick, className }) => {
   return (
-    <i className={classNames('badge', {[`badge--${color}`] : color }, className)}
-        onClick={onClick}>
+    <i onClick={onClick}
+      className={classNames('badge', {[`badge--${color}`] : color }, className)}
+    >
     </i>   
   );      
 }
