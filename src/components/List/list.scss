@@ -25,6 +25,10 @@
     cursor: pointer;
     padding: 10px 12px;
 
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
     &.active {
       margin: 5px;
       font-weight: 500;

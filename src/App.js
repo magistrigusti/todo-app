@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DB from './assets/db.json';
 import List from './components/List';
 import AddList from './components/AddList/AddList';
 
 function App(props) {
-  const [value, setValue] = React.useState('hello');
-  
+const [lists, setLists] = useState(DB.lists.map(item => {
+  item.color = DB.colors.filter(color => 
+  color.id === item.colorId)[0].name;
+  return item;
+}));
 
   return (
     <div className="todo">
@@ -22,7 +25,7 @@ function App(props) {
               name: 'All Tasks',
             }]} />
 
-        <List items={DB.lists} isRemovable />
+        <List items={lists} isRemovable />
 
         <AddList colors={DB.colors} /> 
       </div>
