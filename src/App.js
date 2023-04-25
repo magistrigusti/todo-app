@@ -11,8 +11,8 @@ function App(props) {
   }));
 
   const onAddList = obj => {
-    lists.push(obj);
-    setLists(lists);
+    const newList = [...lists, obj];
+    setLists(newList);
   }
 
   return (
