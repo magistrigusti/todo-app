@@ -1,72 +1,43 @@
 import React, { useState } from 'react';
-import List from '../List';
-import Badge from '../Badge/Badge';
-import '../List/list.scss';
-import closeSvg from '../../assets/img/close.svg';
+import DB from './assets/db.json';
+import List from './components/List';
+import AddList from './components/AddList/AddList';
 
-const AddList = ({ colors, onAdd }) => {
-  const [visiblePopup, setVisiblePopup] = useState(false);
-  const [selectedColor, selectColor] = useState(colors[0].id);
-  const [inputValue, setInputValue] = useState('');
+function App(props) {
+  const [lists, setLists] = useState(DB.lists.map(item => {
+    item.color = DB.colors.filter(color => color.id === item.colorId)[0].name;
+    return item;
+  }));
 
-  const addList = () => {
-    if (!inputValue) {
-      alert('enter list name');
-      return;
-    }
-
-    onAdd({id: Math.random(), name: inputValue, colorId: selectedColor});
+  const onAddList = obj => {
+    const newList = [...lists.]
   }
 
   return (
-    <div clasName="add-list">
-      <List onClick={() => setVisiblePopup(true)}
-        items={[
+    <div className="todo">
+      <div className="todo__sidebar">
+
+        <List items={[
           {
-            className: "list__add-button",
-            name: "Add List",
             icon: (
               <svg
-                width="12" height="12" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 1V15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M1 8H15" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.96 8.10001H7.74001C7.24321 8.10001 7.20001 8.50231 7.20001 9.00001C7.20001 9.49771 7.24321 9.90001 7.74001 9.90001H12.96C13.4568 9.90001 13.5 9.49771 13.5 9.00001C13.5 8.50231 13.4568 8.10001 12.96 8.10001V8.10001ZM14.76 12.6H7.74001C7.24321 12.6 7.20001 13.0023 7.20001 13.5C7.20001 13.9977 7.24321 14.4 7.74001 14.4H14.76C15.2568 14.4 15.3 13.9977 15.3 13.5C15.3 13.0023 15.2568 12.6 14.76 12.6ZM7.74001 5.40001H14.76C15.2568 5.40001 15.3 4.99771 15.3 4.50001C15.3 4.00231 15.2568 3.60001 14.76 3.60001H7.74001C7.24321 3.60001 7.20001 4.00231 7.20001 4.50001C7.20001 4.99771 7.24321 5.40001 7.74001 5.40001ZM4.86001 8.10001H3.24001C2.74321 8.10001 2.70001 8.50231 2.70001 9.00001C2.70001 9.49771 2.74321 9.90001 3.24001 9.90001H4.86001C5.35681 9.90001 5.40001 9.49771 5.40001 9.00001C5.40001 8.50231 5.35681 8.10001 4.86001 8.10001ZM4.86001 12.6H3.24001C2.74321 12.6 2.70001 13.0023 2.70001 13.5C2.70001 13.9977 2.74321 14.4 3.24001 14.4H4.86001C5.35681 14.4 5.40001 13.9977 5.40001 13.5C5.40001 13.0023 5.35681 12.6 4.86001 12.6ZM4.86001 3.60001H3.24001C2.74321 3.60001 2.70001 4.00231 2.70001 4.50001C2.70001 4.99771 2.74321 5.40001 3.24001 5.40001H4.86001C5.35681 5.40001 5.40001 4.99771 5.40001 4.50001C5.40001 4.00231 5.35681 3.60001 4.86001 3.60001Z" fill="black" />
               </svg>
-
             ),
-          }
-        ]}
-      />
+            name: 'All Tasks',
+          }]} />
 
-      {visiblePopup && (
-        <div className="add-list__popup">
-          <img className="add-list__popup-close-btn"
-            src={closeSvg} alt="Close Button"
-            onClick={() => setVisiblePopup(false)}
-          />
+        <List items={lists} isRemovable />
 
-          <input type="text"
-            className="field"
-            placeholder="add new list"
-            value={inputValue}
-            onChange={event => setInputValue(event.target.value)}
-          />
+        <AddList onAdd={onAddList} colors={DB.colors} />
+      </div>
 
-          <div className="add-list__popup-colors">
-            {
-              colors.map(color =>
-                <Badge key={color.id}
-                  color={color.name}
-                  onClick={() => selectColor(color.id)}
-                  className={selectedColor === color.id && 'active'}
-                />
-              )
-            }
-          </div>
-          <button className="button" onClick={addList}></button>
-        </div>
-      )}
+      <div className="todo__task">
+
+      </div>
     </div>
-  )
+  );
 }
 
-export default AddList;
+export default App;
