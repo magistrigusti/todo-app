@@ -1,8 +1,10 @@
 .list {
+  $self: &;
+
   margin-bottom: 30px;
 
   &__add-button {
-
+    
     svg,
     span {
       opacity: 0.4;
@@ -17,6 +19,7 @@
     }
   }
 
+
   li {
     display: flex;
     align-items: center;
@@ -24,6 +27,14 @@
     letter-spacing: 0.3px;
     cursor: pointer;
     padding: 10px 12px;
+
+    &:hover #{$self}__remove-icon {
+      opacity: 0.3;
+    }
+
+    span {
+      flex: 1;
+    }
 
     &:hover {
       background: rgba(255, 255, 255, 0.5);
@@ -52,6 +63,14 @@
           fill: #7c7c7c;
         }
       }
+    }
+  }
+
+    &__remove-icon {
+    opacity: 0;
+
+    &:hover {
+      opacity: 0.8;
     }
   }
 }
