@@ -30,7 +30,7 @@ function App(props) {
             name: 'All Tasks',
           }]} />
 
-        <List items={lists} isRemovable />
+        <List items={lists} isRemovable onRemove={(list) => console.log(list)} />
 
         <AddList onAdd={onAddList} colors={DB.colors} />
       </div>

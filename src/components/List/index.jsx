@@ -5,7 +5,12 @@ import removeSvg from '../../assets/img/remove.svg';
 import './list.scss';
 import '../AddList/AddList.scss';
 
-const List = ({items, isRemovable, onClick}) => {
+const List = ({items, isRemovable, onClick, onRemove}) => {
+  const removeList = (item) => {
+    if (window.confirm('Do yuo really want o delete this list?')) {
+      onRemove(item);
+    }
+  }
   return (
     <ul className="list" onClick={onClick}>
       {
@@ -19,11 +24,13 @@ const List = ({items, isRemovable, onClick}) => {
               }
             </i>
             <span>{item.name}</span>
-            {isRemovable && <img className="list__remove-icon" src={removeSvg} alt="Remove icon" />}
+            {isRemovable && 
+              <img className="list__remove-icon" onClick={() => removeList(item)}
+                src={removeSvg} alt="Remove icon" />}
           </li>)
       }
     </ul>
-  )
+  ) 
 }
 
 export default List;
