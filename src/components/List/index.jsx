@@ -7,7 +7,7 @@ import '../AddList/AddList.scss';
 
 const List = ({items, isRemovable, onClick, onRemove}) => {
   const removeList = (item) => {
-    if (window.confirm('Do yuo really want o delete this list?')) {
+    if (window.confirm('Do you really want to delete this list?')) {
       onRemove(item);
     }
   }

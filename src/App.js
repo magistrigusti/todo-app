@@ -35,8 +35,10 @@ function App(props) {
         <AddList onAdd={onAddList} colors={DB.colors} />
       </div>
 
-      <div className="todo__task">
-
+      <div className="todo__tasks">
+        <div className="tasks">
+          <h2 className="tasks__title">Frontend</h2>
+        </div>
       </div>
     </div>
   );
