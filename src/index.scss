@@ -29,6 +29,24 @@
     border-right: 2px solid #f1f1f1;
     padding: 20px;
   }
+
+  &__tasks {
+    flex: 1;
+    padding: 60px;
+
+  }
+}
+
+.tasks {
+  &__title {
+    position: absolute;
+    width: 128px;
+    height: 39px;
+    left: 257px;
+    top: 56px;
+
+    
+  }
 }
 
 .button {
