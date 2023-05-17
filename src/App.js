@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DB from './assets/db.json';
 import List from './components/List';
 import AddList from './components/AddList/AddList';
+import Tasks from './components/Tasks/Tasks';
 
 function App(props) {
   const [lists, setLists] = useState(DB.lists.map(item => {
@@ -36,9 +37,7 @@ function App(props) {
       </div>
 
       <div className="todo__tasks">
-        <div className="tasks">
-          <h2 className="tasks__title">Frontend</h2>
-        </div>
+        <Tasks />
       </div>
     </div>
   );
