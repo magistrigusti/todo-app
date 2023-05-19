@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import DB from './assets/db.json';
+
 import List from './components/List';
 import AddList from './components/AddList/AddList';
 import Tasks from './components/Tasks/Tasks';
+
+fetch('http://localhost:3001/lists?_expand=color').then(res => res.json()).then(json => {
+  
+})
 
 function App(props) {
   const [lists, setLists] = useState(DB.lists.map(item => {
